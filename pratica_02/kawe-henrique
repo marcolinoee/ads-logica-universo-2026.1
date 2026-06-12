@@ -1,0 +1,170 @@
+# Solicita a entrada do usuário
+numero = int(input("Digite um número inteiro: "))
+
+# Estrutura de decisão para verificar a faixa do número
+if numero > 0:
+    print(f"O número {numero} é POSITIVO.")
+elif numero < 0:
+    print(f"O número {numero} é NEGATIVO.")
+else:
+    print("O número é ZERO.")# Solicita a idade do usuário
+idade = int(input("Digite a sua idade: "))
+
+# Classificação por faixas etárias
+if idade < 18:
+    print("Classificação: Menor de idade.")
+elif 18 <= idade <= 59:
+    print("Classificação: Maior de idade.")
+else:
+    print("Classificação: Idoso.")# O range vai de 1 até 20 (o 21 é o limite exclusivo)
+for numero in range(1, 21):
+    # Verifica se o resto da divisão por 2 é zero
+    if numero % 2 == 0:
+        print(f"O número {numero} é PAR")
+    else:
+        print(f"O número {numero} é ÍMPAR")# Inicializamos a variável antes do laço para que a condição possa ser testada
+senha = ""
+
+# O loop continuará rodando enquanto a senha for diferente de "acesso"
+while senha != "acesso":
+    senha = input("Digite a senha: ")
+
+    if senha == "acesso":
+        print("Senha correta! Bem-vindo ao sistema.")
+    else:
+        print("Senha incorreta. Tente novamente.")# Inicializa o contador antes do laço
+contador_positivos = 0
+
+print("Por favor, digite 10 números:")
+
+# O laço for repetirá 10 vezes
+for i in range(10):
+    numero = float(input(f"Digite o {i + 1}º número: "))
+    
+    # Verifica se o número digitado é positivo
+    if numero > 0:
+        contador_positivos += 1
+
+# Exibe o resultado final
+print("-" * 30)
+print(f"Total de números positivos digitados: {contador_positivos}")nota = float(input("Digite uma nota entre 0 e 10: "))
+
+while nota < 0 or nota > 10:
+    nota = float(input("Nota inválida. Digite novamente: "))
+
+print(f"Nota {nota} válida!")soma = 0
+
+for i in range(8):
+    valor = int(input(f"Digite o {i+1}º valor inteiro: "))
+    if valor % 2 == 0:
+        soma += valor
+
+print(f"A soma dos números pares é: {soma}")numero = int(input("Digite um número para ver a tabuada: "))
+
+for i in range(1, 11):
+    print(f"{numero} x {i} = {numero * i}")salario = float(input("Digite o salário atual: "))
+
+if salario <= 1500:
+    aumento = 0.15
+elif salario <= 3000:
+    aumento = 0.10
+else:
+    aumento = 0.05
+
+novo_salario = salario * (1 + aumento)
+print(f"Novo salário: R$ {novo_salario:.2f}")while True:
+    # Exibição do Menu
+    print("\n--- MENU INTERATIVO ---")
+    print("1 - Somar")
+    print("2 - Subtrair")
+    print("0 - Sair")
+    
+    opcao = input("Escolha uma opção: ")
+
+    # Lógica das opções
+    if opcao == "1":
+        n1 = float(input("Digite o primeiro número: "))
+        n2 = float(input("Digite o segundo número: "))
+        print(f"Resultado da Soma: {n1 + n2}")
+        
+    elif opcao == "2":
+        n1 = float(input("Digite o primeiro número: "))
+        n2 = float(input("Digite o segundo número: "))
+        print(f"Resultado da Subtração: {n1 - n2}")
+        
+    elif opcao == "0":
+        print("Saindo do programa... Até logo!")
+        break # Interrompe o loop while
+        
+    else:
+        print("Opção inválida! Tente novamente.")# Solicita a quantidade de alunos
+total_alunos = int(input("Digite a quantidade de alunos: "))
+
+# Inicializa os contadores
+aprovados = 0
+recuperacao = 0
+reprovados = 0
+
+# Loop para ler a média de cada aluno
+for i in range(total_alunos):
+    media = float(input(f"Digite a média do aluno {i + 1}: "))
+    
+    # Lógica de classificação
+    if media >= 7:
+        aprovados += 1
+    elif 4 <= media < 7:
+        recuperacao += 1
+    else:
+        reprovados += 1
+
+# Exibe o relatório final
+print("\n--- Resultado Final ---")
+print(f"Aprovados:   {aprovados}")
+print(f"Recuperação: {recuperacao}")
+print(f"Reprovados:  {reprovados}")# Inicializa a variável para o total acumulado (opcional, mas útil)
+total_geral = 0
+contador_compras = 0
+
+while True:
+    # Solicita o valor da compra
+    valor = float(input("Digite o valor da compra: R$ "))
+    
+    # Atualiza os totais
+    total_geral += valor
+    contador_compras += 1
+    
+    # Pergunta se o usuário deseja continuar
+    continuar = input("Deseja continuar? (S/N): ").strip().upper()
+    
+    # Verifica a condição de parada
+    if continuar == 'N':
+        break
+    elif continuar != 'S':
+        print("Opção inválida, mas assumirei que deseja parar.")
+        break
+
+# Exibe o resumo ao encerrar
+print("\n--- Resumo das Compras ---")
+print(f"Quantidade de itens: {contador_compras}")
+print(f"Valor total: R$ {total_geral:.2f}")
+print("Programa encerrado. Volte sempre!")contador = 10
+
+while contador >= 1:
+    print(contador)
+    # Subtrai 1 do contador a cada volta do loop
+    contador -= 1 
+
+print("contador encerrado")# Inicializamos a variável com um valor bem baixo
+maior_nota = -1.0
+
+print("Digite as 5 notas dos alunos:")
+
+for i in range(5):
+    nota = float(input(f"Digite a nota do {i + 1}º aluno: "))
+    
+    # Se a nota atual for maior que a maior_nota registrada, ela assume o trono
+    if nota > maior_nota:
+        maior_nota = nota
+
+print("-" * 25)
+print(f"A maior nota do grupo foi: {maior_nota}")

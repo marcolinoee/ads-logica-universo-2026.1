@@ -1,5 +1,5 @@
-nome=input("Digite seu nome: ")
-idade=int(input("Digite sua idade: "))
-altura=float(input("Digite sua altura: "))
+nome = input("Digite o seu nome: ")
+ano_nascimento = int(input("Digite o seu ano de nascimento: "))
+altura = float(input("Digite a sua altura: "))
 
-print("Olá, " + nome + "! Você tem " + str(idade) + " anos e sua altura é " + str(altura) + " metros.")
+print(f"Olá, {nome}. Você tem {2026 - ano_nascimento} anos e mede {altura} metros de altura.")

@@ -1,0 +1,46 @@
+import csv
+import random
+
+# 1. CRIAR OS DADOS (Simples e direto)
+def criar_dados():
+    cabecalho = ['id', 'valor', 'hora', 'status']
+    lista_transacoes = []
+    
+    for i in range(1, 101):
+        valor = round(random.uniform(10, 20000), 2)
+        hora = random.randint(0, 23)
+        # Define se é suspeito só para o relatório
+        status = "SUSPEITA" if (valor > 15000 or hora < 5) else "NORMAL"
+        lista_transacoes.append([i, valor, hora, status])
+        
+    with open('relatorio.csv', 'w', newline='') as f:
+        escritor = csv.writer(f)
+        escritor.writerow(cabecalho)
+        escritor.writerows(lista_transacoes)
+    return "relatorio.csv"
+
+# 2. EXECUTAR A AUDITORIA
+def iniciar():
+    arquivo = criar_dados()
+    print("\n" + "="*40)
+    print("SISTEMA DE AUDITORIA INICIADO")
+    print("="*40)
+    print(f"Arquivo '{arquivo}' gerado com sucesso.")
+    print("\nTOP 5 TRANSAÇÕES DE ALTO VALOR:")
+    print(f"{'ID':<5} | {'VALOR':<10} | {'HORA':<5} | {'STATUS'}")
+    print("-" * 40)
+
+    # Lendo e mostrando na tela
+    with open(arquivo, 'r') as f:
+        leitor = list(csv.DictReader(f))
+        # Ordena por valor (do maior para o menor)
+        leitor.sort(key=lambda x: float(x['valor']), reverse=True)
+        
+        for linha in leitor[:5]:
+            print(f"{linha['id']:<5} | R${linha['valor']:<8} | {linha['hora']:<5} | {linha['status']}")
+    
+    print("="*40)
+    print("PROCESSO FINALIZADO!")
+
+if __name__ == "__main__":
+    iniciar()
